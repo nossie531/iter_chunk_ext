@@ -1,4 +1,4 @@
-//! Iterator extension for segmenting items.
+//! Iterator extension for grouping items.
 //!
 //! *The author of this crate is not good at English.*
 //! *Forgive me if the document is hard to read.*
@@ -8,11 +8,11 @@
 
 pub mod prelude;
 
-pub use segment::*;
-pub use segment_by::*;
-pub use iterator_segment_by_ext::*;
+pub use chunk::*;
+pub use chunk_by::*;
+pub use iterator_chunk_by_ext::*;
 
-mod segment;
-mod segment_by;
-mod iterator_segment_by_ext;
+mod chunk;
+mod chunk_by;
+mod iterator_chunk_by_ext;
 mod msg;

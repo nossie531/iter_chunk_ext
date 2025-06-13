@@ -1,7 +1,7 @@
-iter_segment
+iter_chunk_ext
 ===
 
-Iterator extension for segmenting items.
+Iterator extension for grouping items.
 
 *The author of this crate is not good at English.*  
 *Forgive me if the document is hard to read.*
@@ -9,31 +9,31 @@ Iterator extension for segmenting items.
 ## What is this?
 
 This crate provides an iterator extension that supports items grouping.
-Note that “Grouping” here is dependent on orders, so it is slightly
-different from SQL's `GROUP BY` caluse.
+Note that “Grouping” here is not dependent on orders, so it is slightly
+different from SQL's `GROUP BY` effect.
 
 ## Examples
 
 ```rust
-use iter_segment::prelude::*;
+use iter_chunk_ext::prelude::*;
 
 let items = vec![("a", 0), ("a", 1), ("b", 0), ("a", 2)];
-let segs = &mut items.iter().segment_by(|x| x.0);
+let chunks = &mut items.iter().chunk_by(|x| x.0);
 
-let seg = &mut segs.next().unwrap();
-assert_eq!(seg.next(), Some(&("a", 0)));
-assert_eq!(seg.next(), Some(&("a", 1)));
-assert_eq!(seg.next(), None);
+let chunk = &mut chunks.next().unwrap();
+assert_eq!(chunk.next(), Some(&("a", 0)));
+assert_eq!(chunk.next(), Some(&("a", 1)));
+assert_eq!(chunk.next(), None);
 
-let seg = &mut segs.next().unwrap();
-assert_eq!(seg.next(), Some(&("b", 0)));
-assert_eq!(seg.next(), None);
+let chunk = &mut chunks.next().unwrap();
+assert_eq!(chunk.next(), Some(&("b", 0)));
+assert_eq!(chunk.next(), None);
 
-let seg = &mut segs.next().unwrap();
-assert_eq!(seg.next(), Some(&("a", 2)));
+let chunk = &mut chunks.next().unwrap();
+assert_eq!(chunk.next(), Some(&("a", 2)));
 
-let seg = &mut segs.next();
-assert!(seg.is_none());
+let chunk = &mut chunks.next();
+assert!(chunk.is_none());
 ```
 
 ## Other options

@@ -1,16 +1,16 @@
-//! Provider of [`SegmentBy`].
+//! Provider of [`ChunkBy`].
 
-use crate::segment::Segment;
+use crate::chunk::Chunk;
 use crate::msg;
 
-/// An iterator that segments iterator items.
+/// An iterator that grouping iterator items.
 /// 
-/// This struct is created by [`IteratorSegmentByExt::segment_by`][1].
+/// This struct is created by [`IteratorChunkByExt::chunk_by`][1].
 /// 
-/// [1]: crate::IteratorSegmentByExt::segment_by
+/// [1]: crate::IteratorChunkByExt::chunk_by
 #[derive(Clone, Debug)]
 #[must_use = msg::iter_must_use!()]
-pub struct SegmentBy<I, F, K>
+pub struct ChunkBy<I, F, K>
 where 
     I: Iterator
 {
@@ -18,11 +18,11 @@ where
     iter: I,
     /// Closure for key generating.
     f: F,
-    /// Current segment key.
+    /// Current grouping key.
     key: Option<K>,
 }
 
-impl <I, F, K> SegmentBy<I, F, K>
+impl <I, F, K> ChunkBy<I, F, K>
 where 
     I: Iterator
 {
@@ -32,13 +32,13 @@ where
     }
 }
 
-impl<I, F, K> Iterator for SegmentBy<I, F, K>
+impl<I, F, K> Iterator for ChunkBy<I, F, K>
 where 
     I: Clone + Iterator,
     F: Copy + FnMut(&I::Item) -> K,
     K: PartialEq,
 {
-    type Item = Segment<I, F, K>;
+    type Item = Chunk<I, F, K>;
 
     fn next(&mut self) -> Option<Self::Item> {
         while let Some(val) = self.iter.next() {
@@ -46,7 +46,7 @@ where
                 let iter = self.iter.clone();
                 let key = (self.f)(&val);
                 self.key = Some((self.f)(&val));
-                return Some(Segment::new(val, iter, self.f, key));
+                return Some(Chunk::new(val, iter, self.f, key));
             }
         }
 

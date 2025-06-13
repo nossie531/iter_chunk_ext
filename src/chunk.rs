@@ -1,11 +1,11 @@
-//! Provider of [`Segment`].
+//! Provider of [`Chunk`].
 
 use crate::msg;
 
-/// Segment items iterator.
+/// Chunk items iterator.
 #[derive(Clone, Debug)]
 #[must_use = msg::iter_must_use!()]
-pub struct Segment<I, F, K>
+pub struct Chunk<I, F, K>
 where 
     I: Iterator,
 {
@@ -15,11 +15,11 @@ where
     iter: I,
     /// Closure for key generating.
     f: F,
-    /// Segment key.
+    /// Grouping key.
     key: K,
 }
 
-impl<I, F, K> Segment<I, F, K>
+impl<I, F, K> Chunk<I, F, K>
 where 
     I: Iterator,
 {
@@ -30,7 +30,7 @@ where
     }
 }
 
-impl<I, F, K> Iterator for Segment<I, F, K>
+impl<I, F, K> Iterator for Chunk<I, F, K>
 where 
     I: Iterator,
     F: FnMut(&I::Item) -> K,
