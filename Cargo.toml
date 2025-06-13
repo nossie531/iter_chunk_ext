@@ -1,0 +1,10 @@
+[package]
+name = "iter_segment"
+version = "0.1.0"
+authors = ["Nossie531"]
+edition = "2024"
+description = "Iterator extension for segmenting items."
+repository = "https://github.com/nossie531/iter_segment"
+license = "MIT OR Apache-2.0"
+keywords = ["Iterator"]
+categories = ["no-std", "rust-patterns"]
