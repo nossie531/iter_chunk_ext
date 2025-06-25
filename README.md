@@ -31,6 +31,7 @@ assert_eq!(chunk.next(), None);
 
 let chunk = &mut chunks.next().unwrap();
 assert_eq!(chunk.next(), Some(&("a", 2)));
+assert_eq!(chunk.next(), None);
 
 let chunk = &mut chunks.next();
 assert!(chunk.is_none());
