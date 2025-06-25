@@ -4,15 +4,15 @@ use crate::chunk::Chunk;
 use crate::msg;
 
 /// An iterator that grouping iterator items.
-/// 
+///
 /// This struct is created by [`IteratorChunkByExt::chunk_by`][1].
-/// 
+///
 /// [1]: crate::IteratorChunkByExt::chunk_by
 #[derive(Clone, Debug)]
 #[must_use = msg::iter_must_use!()]
 pub struct ChunkBy<I, F, K>
-where 
-    I: Iterator
+where
+    I: Iterator,
 {
     /// Source items iterator.
     iter: I,
@@ -22,9 +22,9 @@ where
     key: Option<K>,
 }
 
-impl <I, F, K> ChunkBy<I, F, K>
-where 
-    I: Iterator
+impl<I, F, K> ChunkBy<I, F, K>
+where
+    I: Iterator,
 {
     /// Creates a new value.
     pub(crate) fn new(iter: I, f: F) -> Self {
@@ -33,7 +33,7 @@ where
 }
 
 impl<I, F, K> Iterator for ChunkBy<I, F, K>
-where 
+where
     I: Clone + Iterator,
     F: Copy + FnMut(&I::Item) -> K,
     K: PartialEq,

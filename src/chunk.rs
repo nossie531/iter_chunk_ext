@@ -6,7 +6,7 @@ use crate::msg;
 #[derive(Clone, Debug)]
 #[must_use = msg::iter_must_use!()]
 pub struct Chunk<I, F, K>
-where 
+where
     I: Iterator,
 {
     /// Head item.
@@ -20,18 +20,18 @@ where
 }
 
 impl<I, F, K> Chunk<I, F, K>
-where 
+where
     I: Iterator,
 {
     /// Creates a new value.
     pub(crate) fn new(head: I::Item, iter: I, f: F, key: K) -> Self {
         let head = Some(head);
-        Self {head, iter, f, key}
+        Self { head, iter, f, key }
     }
 }
 
 impl<I, F, K> Iterator for Chunk<I, F, K>
-where 
+where
     I: Iterator,
     F: FnMut(&I::Item) -> K,
     K: PartialEq,
