@@ -47,24 +47,22 @@ Followings are some of them.
 📦 **[`itertools`][it_0] (Extra iterator tools)**
 
 * [`chunk_by`][it_1] - Creates an iterator for grouping.  
-  It is unique in that if access to each group in any order is needed,  
-  iterator itself provides storage to accomplish its operation.
-* [`into_grouping_map_by`][it_2] - Creates grouping aggregation helper  
-  It is designed for smart aggregation from grouping.
+  (Access to each group in any order is achieved by memory allocation.)
 
 📦 **[`grouping_by`][gb_0] (Grouping hash map creator)**
 
-* [`grouping_by`][gb_1] - Creates hash map grouped by key.
+* [`grouping_by`][gb_1] - Creates hash map grouped by key.  
+  (This returns `HashMap` object.)
 
 ## Highlights
 
-This crate is characterized by following Pros/Cons.
+This crate is characterized by following Pros/Cons.  
 These Pros/Cons are two sides of the same coin.
 
 😊 **Pros**
 
 Low memory consumption. No heap memory required.  
-So it can work in `core` environment.
+So this crate can work in `core` environment.
 
 🤔 **Cons**
 
@@ -76,7 +74,7 @@ additional trait bounds.
 
 ## Note
 
-I feel my approach is natural. But as of 2025, I cannot find same approache.
+I feel my approach is natural. But as of 2025, I cannot find same approach.  
 This makes me little uneasy. So, please check carefully before using.
 
 ## Versions
@@ -87,6 +85,5 @@ See [CHANGELOG](CHANGELOG.md).
 
 [it_0]: https://crates.io/crates/itertools
 [it_1]: https://docs.rs/itertools/0.14.0/itertools/trait.Itertools.html#method.chunk_by
-[it_2]: https://docs.rs/itertools/0.14.0/itertools/trait.Itertools.html#method.into_grouping_map_by
 [gb_0]: https://crates.io/crates/grouping_by
 [gb_1]: https://docs.rs/grouping_by/0.2.2/grouping_by/trait.GroupingBy.html#tymethod.grouping_by
