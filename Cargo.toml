@@ -6,5 +6,5 @@ edition = "2024"
 description = "Iterator extension for grouping items."
 repository = "https://github.com/nossie531/iter_chunks_ext"
 license = "MIT OR Apache-2.0"
-keywords = ["Iterator"]
+keywords = ["Iterator", "Extension"]
 categories = ["no-std", "rust-patterns"]
