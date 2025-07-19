@@ -9,7 +9,8 @@ Iterator extension for grouping items.
 ## What is this?
 
 This crate provides an iterator extension that supports items grouping.
-Note that “Grouping” here is not dependent on orders, so it is slightly
+
+Note that “Grouping” here is dependent on orders, so it is slightly
 different from SQL's `GROUP BY` effect.
 
 ## Examples
@@ -43,7 +44,7 @@ There are many crates that can group items from iterators.
 
 Followings are some of them.
 
-📦 **[`itertools`][it_0] (De facto standard of iterator extension)**
+📦 **[`itertools`][it_0] (Extra iterator tools)**
 
 * [`chunk_by`][it_1] - Creates an iterator for grouping.  
   It is unique in that if access to each group in any order is needed,  
@@ -61,7 +62,7 @@ I feel this approach is natural. But as of 2025, I cannot find similar
 approaches. This makes me little uneasy. Please check carefully before
 using to make sure there are no problems.
 
-😄 **Pros**
+😊 **Pros**
 
 Low memory consumption. No heap memory required.  
 So it can work in `core` environment.
