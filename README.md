@@ -75,6 +75,10 @@ additional trait bounds.
 * `Clone` trait is required for iterators.
 * `Copy` trait is required for closures.
 
+## Versions
+
+See [CHANGELOG](CHANGELOG.md).
+
 <!-- Links -->
 
 [it_0]: https://crates.io/crates/itertools
