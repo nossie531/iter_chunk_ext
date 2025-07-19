@@ -58,9 +58,8 @@ Followings are some of them.
 
 ## Highlights
 
-I feel this approach is natural. But as of 2025, I cannot find similar
-approaches. This makes me little uneasy. Please check carefully before
-using to make sure there are no problems.
+This crate is characterized by following Pros/Cons.
+These Pros/Cons are two sides of the same coin.
 
 😊 **Pros**
 
@@ -74,6 +73,11 @@ additional trait bounds.
 
 * `Clone` trait is required for iterators.
 * `Copy` trait is required for closures.
+
+## Note
+
+I feel my approach is natural. But as of 2025, I cannot find same approache.
+This makes me little uneasy. So, please check carefully before using.
 
 ## Versions
 
