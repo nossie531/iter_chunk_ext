@@ -9,10 +9,10 @@
 pub mod prelude;
 
 pub use chunk::*;
-pub use chunk_by::*;
-pub use iterator_chunk_by_ext::*;
+pub use chunks::*;
+pub use iterator_chunks_ext::*;
 
 mod chunk;
-mod chunk_by;
-mod iterator_chunk_by_ext;
+mod chunks;
+mod iterator_chunks_ext;
 mod msg;

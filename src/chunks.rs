@@ -1,16 +1,16 @@
-//! Provider of [`ChunkBy`].
+//! Provider of [`Chunks`].
 
 use crate::chunk::Chunk;
 use crate::msg;
 
 /// An iterator that grouping iterator items.
 ///
-/// This struct is created by [`IteratorChunkByExt::chunk_by`][1].
+/// This struct is created by [`IteratorChunksExt::chunks`][1].
 ///
-/// [1]: crate::IteratorChunkByExt::chunk_by
+/// [1]: crate::IteratorChunksExt::chunks
 #[derive(Clone, Debug)]
 #[must_use = msg::iter_must_use!()]
-pub struct ChunkBy<I, F, K>
+pub struct Chunks<I, F, K>
 where
     I: Iterator,
 {
@@ -22,7 +22,7 @@ where
     key: Option<K>,
 }
 
-impl<I, F, K> ChunkBy<I, F, K>
+impl<I, F, K> Chunks<I, F, K>
 where
     I: Iterator,
 {
@@ -32,7 +32,7 @@ where
     }
 }
 
-impl<I, F, K> Iterator for ChunkBy<I, F, K>
+impl<I, F, K> Iterator for Chunks<I, F, K>
 where
     I: Clone + Iterator,
     F: Copy + FnMut(&I::Item) -> K,

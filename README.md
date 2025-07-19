@@ -1,4 +1,4 @@
-iter_chunk_ext
+iter_chunks_ext
 ===
 
 Iterator extension for grouping items.
@@ -16,10 +16,10 @@ different from SQL's `GROUP BY` effect.
 ## Examples
 
 ```rust
-use iter_chunk_ext::prelude::*;
+use iter_chunks_ext::prelude::*;
 
 let items = vec![("a", 0), ("a", 1), ("b", 0), ("a", 2)];
-let chunks = &mut items.iter().chunk_by(|x| x.0);
+let chunks = &mut items.iter().chunks(|x| x.0);
 
 let chunk = &mut chunks.next().unwrap();
 assert_eq!(chunk.next(), Some(&("a", 0)));

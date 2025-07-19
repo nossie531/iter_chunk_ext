@@ -1,3 +1,3 @@
 //! Crate's prelude.
 
-pub use crate::IteratorChunkByExt;
+pub use crate::IteratorChunksExt;

@@ -1,18 +1,18 @@
-//! Provider of [`IteratorChunkByExt`].
+//! Provider of [`IteratorChunksExt`].
 
-use crate::chunk_by::ChunkBy;
+use crate::chunks::Chunks;
 
-/// Iterator extension for [`chunk_by`](IteratorChunkByExt::chunk_by) method.
-pub trait IteratorChunkByExt: Clone + Iterator {
+/// Iterator extension for [`chunks`](IteratorChunksExt::chunks) method.
+pub trait IteratorChunksExt: Clone + Iterator {
     /// Creates an iterator for grouping items.
     ///
     /// # Examples
     ///
     /// ```
-    /// use iter_chunk_ext::prelude::*;
+    /// use iter_chunks_ext::prelude::*;
     ///
     /// let items = vec![("a", 0), ("a", 1), ("b", 0), ("a", 2)];
-    /// let chunks = &mut items.iter().chunk_by(|x| x.0);
+    /// let chunks = &mut items.iter().chunks(|x| x.0);
     ///
     /// let chunk = &mut chunks.next().unwrap();
     /// assert_eq!(chunk.next(), Some(&("a", 0)));
@@ -30,16 +30,16 @@ pub trait IteratorChunkByExt: Clone + Iterator {
     /// let chunk = &mut chunks.next();
     /// assert!(chunk.is_none());
     /// ```
-    fn chunk_by<F, K>(self, f: F) -> ChunkBy<Self, F, K>
+    fn chunks<F, K>(self, f: F) -> Chunks<Self, F, K>
     where
         F: FnMut(&Self::Item) -> K,
         K: PartialEq,
     {
-        ChunkBy::new(self, f)
+        Chunks::new(self, f)
     }
 }
 
-impl<T> IteratorChunkByExt for T
+impl<T> IteratorChunksExt for T
 where
     T: Clone + Iterator,
 {

@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "iter_chunk_ext"
+name = "iter_chunks_ext"
 version = "0.1.0"
