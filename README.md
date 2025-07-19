@@ -47,12 +47,12 @@ Followings are some of them.
 📦 **[`itertools`][it_0] (Extra iterator tools)**
 
 * [`chunk_by`][it_1] - Creates an iterator for grouping.  
-  (Access to each group in any order is achieved by memory allocation.)
+  (To access groups in any order requires heap memory allocation.)
 
 📦 **[`grouping_by`][gb_0] (Grouping hash map creator)**
 
 * [`grouping_by`][gb_1] - Creates hash map grouped by key.  
-  (Memory allocation is required for use of hash maps.)
+  (Heap Memory allocation is required for use of hash maps.)
 
 ## Highlights
 
