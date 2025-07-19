@@ -52,7 +52,7 @@ Followings are some of them.
 📦 **[`grouping_by`][gb_0] (Grouping hash map creator)**
 
 * [`grouping_by`][gb_1] - Creates hash map grouped by key.  
-  (This returns `HashMap` object.)
+  (Memory allocation is required for use of hash maps.)
 
 ## Highlights
 
